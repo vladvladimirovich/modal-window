@@ -1,20 +1,27 @@
 class ModalWindow {
     constructor() {
         if(! ModalWindow.instance) {
+            //Init window
             this.init();
             
+            //Window is hiden
             this._showed = false;
 
+            //Events
             let body = document.querySelector('body');
             body.addEventListener('keydown', (e) => {
                 if (e.key == "Escape") {
                     this.hide()
                 }
             });
-            
-            document.querySelector('[href="#close"]').addEventListener('click', (e) => {
-                console.log("sdf");
+            this._modalClose.addEventListener('click', (e) => {
                 this.hide();
+            });
+            this._modalWindow.addEventListener('click', (e) => {
+                if (!this._modalDialog.contains(e.target)) {
+                    this.hide();
+                }
+
             });
 
 
@@ -88,7 +95,7 @@ class ModalWindow {
             this._modalWindow.style.pointerEvents = 'none';
             this.showed = false;
         }
-    }
+    } 
 }
 
 
