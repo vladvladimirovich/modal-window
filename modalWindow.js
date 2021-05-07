@@ -54,8 +54,7 @@ class ModalWindow {
     }
 
     addContent(content) {
-        this.content = content;
-        this.container.appendChild(content);
+        this._modalBody.appendChild(content);
     }
 
     show() {
