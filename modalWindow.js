@@ -53,6 +53,10 @@ class ModalWindow {
         body.appendChild(this._modalWindow);
     }
 
+    changeTitle(str) {
+        this._modalTitle.innerText = str;
+    }
+
     addContent(content) {
         this._modalBody.appendChild(content);
     }
