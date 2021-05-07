@@ -2,8 +2,21 @@ class ModalWindow {
     constructor() {
         if(! ModalWindow.instance) {
             this.init();
-
+            
             this._showed = false;
+
+            let body = document.querySelector('body');
+            body.addEventListener('keydown', (e) => {
+                if (e.key == "Escape") {
+                    this.hide()
+                }
+            });
+            
+            document.querySelector('[href="#close"]').addEventListener('click', (e) => {
+                console.log("sdf");
+                this.hide();
+            });
+
 
             ModalWindow.instance = this;
         }
@@ -30,6 +43,7 @@ class ModalWindow {
         this._modalClose = document.createElement('a');
         this._modalClose.title = "Close";
         this._modalClose.innerHTML = "x";
+        this._modalClose.setAttribute('href', '#close');
         this._modalClose.setAttribute('class', 'modal-close')
 
         this._modalBody = document.createElement('div');
@@ -68,13 +82,15 @@ class ModalWindow {
         }
     }
 
-    close() {
+    hide() {
         if (this._showed == true) {
             this._modalWindow.style.opacity = 0;
+            this._modalWindow.style.pointerEvents = 'none';
             this.showed = false;
         }
     }
 }
+
 
 const ModalWindowInstance = new ModalWindow();
 export default ModalWindowInstance;
