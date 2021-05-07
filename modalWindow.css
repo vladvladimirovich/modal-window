@@ -10,6 +10,11 @@ body {
   
 /* свойства модального окна по умолчанию */
 .modal {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed; /* фиксированное положение */
     top: 0;
     right: 0;
@@ -34,8 +39,10 @@ body {
 /* ширина модального окна и его отступы от экрана */
 .modal-dialog {
     position: relative;
-    width: auto;
-    margin: 10px;
+    max-width: 100vw;
+    min-width: 20vw;
+    /* margin: 10px; */
+    
 }
 @media (min-width: 576px) {
   .modal-dialog {
