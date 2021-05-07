@@ -42,6 +42,15 @@ class ModalWindow {
         this._modalHeader.appendChild(this._modalTitle);
         this._modalHeader.appendChild(this._modalClose);
         this._modalContent.appendChild(this._modalBody);
+
+        const head = document.querySelector('head');
+        const body = document.querySelector('body');
+        const styleLink = document.createElement('link');
+        styleLink.rel = 'stylesheet';
+        styleLink.href = 'modalWindow.css';
+        
+        head.appendChild(styleLink)
+        body.appendChild(this._modalWindow);
     }
 
     addContent(content) {
@@ -51,16 +60,15 @@ class ModalWindow {
 
     show() {
         if (this._showed == false) {
-            const head = document.querySelector('head');
-            const body = document.querySelector('body');
-            const styleLink = document.createElement('link');
-            styleLink.rel = 'stylesheet';
-            styleLink.href = 'modalWindow.css';
-            
-            head.appendChild(styleLink)
-            body.appendChild(this._modalWindow);
-            
-            this.showed = true;
+            this._modalWindow.style.opacity = 1;
+            this._showed = true;
+        }
+    }
+
+    close() {
+        if (this._showed == true) {
+            this._modalWindow.style.opacity = 0;
+            this.showed = false;
         }
     }
 }

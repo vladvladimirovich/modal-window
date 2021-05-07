@@ -17,7 +17,7 @@ body {
     left: 0;
     background: rgba(0,0,0,0.5); /* цвет фона */
     z-index: 1050;
-    opacity: 1; /* по умолчанию модальное окно прозрачно */
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
     -webkit-transition: opacity 200ms ease-in; 
     -moz-transition: opacity 200ms ease-in;
     transition: opacity 200ms ease-in; /* анимация перехода */
