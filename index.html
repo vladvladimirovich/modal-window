@@ -8,7 +8,12 @@
     <script type="module">
         import ModalWindowInstance from './modalWindow.js';
         let button = document.createElement('button');
+        button.style.width = '100px';
+        button.style.height = '20px';
+        button.innerText = "BUTTON";
         ModalWindowInstance.show();
+        ModalWindowInstance.changeTitle("TitleTitleTitleTitleTitle");
+        // ModalWindowInstance.disableCloseButton();
         ModalWindowInstance.addContent(button);
     </script>
 </head>
